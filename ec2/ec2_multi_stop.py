@@ -1,3 +1,4 @@
+#
 # Scenario: Our DevOps engineering team often uses a development lab to test releases of our application.
 # The Managers are complaining about the rising cost of our development lab and need to save money
 # by stopping our (for this example) 3 ec2 instances after all engineers are clocked out.
@@ -9,6 +10,7 @@
 # You can create Boto3 session using your AWS credentials Access key id and secret access key.
 # The boto3 library is an AWS SDK for Python. It provides object-oriented API services and low-level
 # services to the AWS services. It allows users to create, and manage AWS services.
+#
 
 import boto3
 
@@ -20,13 +22,14 @@ ec2_client = boto3.client('ec2')
 # Use the describe_instances method to get a list of all running instances
 response = ec2_client.describe_instances()
 
-
+# take list with all the running instances, find the Reservations section and grab all the
+# elements
 data = response["Reservations"]
 
 # initialize list
 ec2_list=[]
 
-# for loop to process the content under the Reservations list.
+# "for" loop to process the content under the Reservations list and stored in the data variable.
 # Will extract the Instance Name and Instance ID that will be sent to the
 # stop instance method.
 for instances in data:
