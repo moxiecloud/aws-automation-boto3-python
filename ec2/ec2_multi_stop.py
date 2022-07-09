@@ -12,10 +12,12 @@
 # services to the AWS services. It allows users to create, and manage AWS services.
 #
 
+# AWS Python SDK
 import boto3
 
 # All API services are available in the Boto3 Client. Maps 1:1 with the AWS service API.
 # The client provides methods to connect with AWS services similar to the AWS API service.
+#
 # Create a low-level client for the ec2 service
 ec2_client = boto3.client('ec2')
 
@@ -30,8 +32,7 @@ data = response["Reservations"]
 ec2_list=[]
 
 # "for" loop to process the content under the Reservations list and stored in the data variable.
-# Will extract the Instance Name and Instance ID that will be sent to the
-# stop instance method.
+# Will extract the Instance Name and Instance ID that will be sent to the stop instance method.
 for instances in data:
     instance=instances["Instances"]
     for ids in instance:
