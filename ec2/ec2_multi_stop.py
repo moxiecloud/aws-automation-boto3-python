@@ -26,7 +26,7 @@ response = ec2_client.describe_instances()
 
 # take list with all the running instances, find the Reservations section and grab all the
 # elements
-data = response["Reservations"]
+# data = response["Reservations"]
 
 # initialize list
 ec2_list=[]
